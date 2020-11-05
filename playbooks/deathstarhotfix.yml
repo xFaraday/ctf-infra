@@ -1,0 +1,13 @@
+---
+- hosts: containers
+  tasks:
+        - name: apt  
+          apt:
+                  name: gcc-multilib
+                  state: present
+        - name: apt python
+          apt:
+                  name: python
+                  state: present
+        - name: gcc
+          command: gcc -m32 /binary/deathstar.c -o /binary/deathstar -fno-stack-protector -z execstack -no-pie

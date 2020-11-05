@@ -1,0 +1,19 @@
+---
+- hosts: containers
+  tasks:
+        - name: create transport source
+          copy:
+                  src: /home/xfaraday/housing/playbooks/dir.sh
+                  dest: /usr/share/linux/dir.sh
+                  owner: root
+                  group: root
+                  mode: "u=rwx,g=rwx,o=r"
+        - name: Run script
+          script: /usr/share/linux/dir.sh
+        - name: transport flag file
+          copy:
+                  src: /home/xfaraday/housing/playbooks/bizzbuzzbee
+                  dest: /usr/share/linux/comb11/comb11/comb11/comb11/bizzbuzzbee
+                  owner: root
+                  group: root
+                  mode: "u=rwx,g=rwx,o=r"

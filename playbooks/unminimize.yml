@@ -1,0 +1,5 @@
+---
+- hosts: containers
+  tasks:
+       - name: U N M I N I M I Z E
+         shell: "unminimize"

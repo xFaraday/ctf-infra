@@ -1,0 +1,26 @@
+---
+- hosts: containers
+  tasks:
+        - name: transport source
+          copy:
+                  src: /home/xfaraday/housing/playbooks/deathstar.c
+                  dest: /binary/deathstar.c
+                  owner: root
+                  group: root
+                  mode: "u=rwx,g=rwx,o=r"
+        - name: create user 
+          command: useradd palpatine
+        - name: transport flag
+          copy:
+                  src: /home/xfaraday/housing/playbooks/deathstarflag.txt
+                  dest: /binary/deathstarflag.txt
+                  owner: palpatine
+                  group: palpatine
+                  mode: "u=rwx,g=rwx,o="
+        - name: transport binary
+          copy:
+                  src: /home/xfaraday/housing/playbooks/deathstar
+                  dest: /binary/deathstar
+                  owner: root
+                  group: root
+                  mode: "u=rwx,g=rwx,o=rx" 

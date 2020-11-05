@@ -1,0 +1,12 @@
+---
+- hosts: containers
+  tasks:
+       - name: remove user from sudoers
+         shell: "user=$(grep 1000 /etc/passwd | awk -F: '{print $1}'); deluser $user sudo"
+         register: grep_output
+       
+
+
+       - debug: 
+                var: grep_output.stdout_lines
+

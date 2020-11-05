@@ -1,0 +1,15 @@
+---
+- hosts: containers
+  tasks:
+        - name: create binary directory
+          file:
+                path: /usr/share/linux
+                state: directory
+                mode: "u=rwx,g=rx,o=r"
+        - name: create transport source
+          copy:
+                  src: /home/xfaraday/housing/playbooks/flag
+                  dest: /usr/share/linux/flag
+                  owner: root
+                  group: root
+                  mode: "u=rwx,g=rwx,o=r"

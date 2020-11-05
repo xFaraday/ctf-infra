@@ -1,0 +1,13 @@
+---
+- hosts: containers
+  tasks:
+       - name: Delete original flag
+         shell: "rm -f /binary/deathstarflag.txt"
+       - name: transport flag
+         copy:
+                src: /home/xfaraday/housing/playbooks/deathstarflag.txt
+                dest: /binary/deathstarflag.txt
+                owner: palpatine
+                group: palpatine
+                mode: "u=rwx,g=rwx,o="       
+

@@ -1,0 +1,8 @@
+---
+- hosts: containers
+  tasks:
+        - name: create binary directory
+          file:
+                  path: /binary
+                  state: directory
+                  mode: "u=rwx,g=rx,o=rx"

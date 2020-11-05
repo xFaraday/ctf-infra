@@ -1,0 +1,19 @@
+---
+- hosts: containers
+  tasks:
+        - name: Insert banner for ssh
+          lineinfile:
+                  dest: /etc/ssh/sshd_config
+                  line: 'Banner /etc/ssh/sshd-banner'
+                  insertafter: '#ListenAddress ::'
+        - name: Create banner file
+          file:
+                  path: "/etc/ssh/sshd-banner"
+                  state: touch
+        - name: Edit banner file
+          lineinfile:
+                  dest: /etc/ssh/sshd-banner
+                  line: 'CisoCTF{wow_my_own_workstation}'
+                  insertbefore: BOF
+        - name: Reload sshd
+          command: service ssh reload      

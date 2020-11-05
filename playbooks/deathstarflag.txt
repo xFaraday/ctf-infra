@@ -1,0 +1,1 @@
+CisoCTF{shell_codes_kinda_look_different}
